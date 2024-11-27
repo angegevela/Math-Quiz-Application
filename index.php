@@ -5,7 +5,17 @@ $sql_query = "SELECT username, score, date FROM leaderboard ORDER BY score DESC,
 $result = $conn->query($sql_query);
 ?>
 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['close'])) {
+        // Perform actions before terminating, if needed
+        echo "Process terminated.";
 
+        // Stop script execution
+        exit();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
