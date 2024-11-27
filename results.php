@@ -38,3 +38,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
     exit;
 }
 ?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+</head>
+<body>
+    <h1>Quiz Completed!</h1>
+    <p>Your Score: <?= $score ?> / 20</p>
+    <p>Your Rank: <?= $rank ?></p>
+
+    <form method="POST">
+        <label for="username">Enter Your Username:</label>
+        <input type="text" name="username" id="username" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
