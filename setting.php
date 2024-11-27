@@ -53,6 +53,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <h1>Math Quiz Settings</h1>
-    <form method="POST"></form>
+    <form method="POST">
+    <label for="num_questions">Number of Questions:</label>
+        <input type="number" name="num_questions" id="num_questions" value="10" min="1" required><br>
+
+        <label>Operands:</label><br>
+        <input type="checkbox" name="operands[]" value="+" checked> +<br>
+        <input type="checkbox" name="operands[]" value="-" checked> -<br>
+        <input type="checkbox" name="operands[]" value="*" checked> *<br>
+        <input type="checkbox" name="operands[]" value="/" checked> /<br>
+        <input type="checkbox" name="operands[]" value="%" checked> %<br>
+
+        <label for="max_value">Maximum Value:</label>
+        <input type="number" name="max_value" id="max_value" value="100" min="1" required><br>
+
+        <button type="submit">Start Quiz</button>
+
+
+    </form>
 </body>
 </html>
