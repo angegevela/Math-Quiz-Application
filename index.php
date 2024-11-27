@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form method="POST">
         <button type="submit" name="close">Close</button>
     </form>
-    <table border="1">
+    <table table border='2' cellspacing='2' cellpadding='7', text-align = 'center', style='text-align: center; font-family: Arial, serif;'>
         <thead>
             <tr>
                 <th>Rank</th>
