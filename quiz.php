@@ -51,3 +51,26 @@ for ($i = 1; $i <= 3; $i++) {
 
 shuffle($choices); // Randomize answer order
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+</head>
+<body>
+    <h1>Math Quiz</h1>
+    <form method="POST">
+        <p><strong>Question:</strong> <?= $question ?> = ?</p>
+        <?php foreach ($choices as $index => $choice): ?>
+            <label>
+                <input type="radio" name="answer" value="<?= $choice ?>" required>
+                <?= chr(65 + $index) ?>) <?= $choice ?>
+            </label><br>
+        <?php endforeach; ?>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
