@@ -32,6 +32,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form method="POST">
         <button type="submit" name="close">Close</button>
     </form>
-
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Score</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($result->num_rows > 0) {
+                $rank = 1;
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $rank++ . "</td>";
+                    echo "<td>" . htmlspecialchars($row['username']) . "</td>";
+                    echo "<td>" . $row['score'] . "</td>";
+                    echo "<td>" . $row['date'] . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='4'>No scores available</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
 </body>
 </html>
