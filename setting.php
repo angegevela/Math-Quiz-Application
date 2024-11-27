@@ -36,7 +36,7 @@ f ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['wrong'] = 0;
 
 
-
-
-
+    // Redirect to quiz page
+    header('Location: quiz.php');
+    exit;
 ?>
