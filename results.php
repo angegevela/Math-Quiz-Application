@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
     $stmt->execute();
     
     // Redirect to leaderboard after saving score
-    header('Location: index1.php');
+    header('Location: index.php');
     exit;
 }
 ?>

@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 <body>
 <h1>Leaderboard</h1>
-    <form method="POST" action="settings.php">
+    <form method="POST" action="setting.php">
     <button type="submit" name="start_quiz">Start Quiz</button>
     </form>
 
