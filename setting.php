@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-f ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Fetch user-selected settings
     $numQuestions = $_POST['num_questions']; // E.g., 10
     $operands = $_POST['operands']; // E.g., ['+', '-', '*', '/']
@@ -39,4 +39,20 @@ f ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Redirect to quiz page
     header('Location: quiz.php');
     exit;
+}
 ?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Settings</title>
+</head>
+<body>
+    <h1>Math Quiz Settings</h1>
+    <form method="POST"></form>
+</body>
+</html>
