@@ -23,5 +23,18 @@ if ($score >= 85) {
     $rank = 'D';
 }
 
+// Handle form submission to save user details
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
+    $username = $_POST['username'];
+    $date = date('Y-m-d H:i:s'); // Current date and time
 
+    // Insert the score into the database
+    $stmt = $conn->prepare("INSERT INTO leaderboard (username, score, date) VALUES (?, ?, ?)");
+    $stmt->bind_param("sis", $username, $score, $date);
+    $stmt->execute();
+    
+    // Redirect to leaderboard after saving score
+    header('Location: index1.php');
+    exit;
+}
 ?>
