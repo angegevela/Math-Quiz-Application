@@ -96,7 +96,6 @@ body{
     height: 100vh;
 }
 
-
 </style>
 <body>
 <div id="wrapper">
