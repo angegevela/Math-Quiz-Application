@@ -9,6 +9,19 @@ if (!isset($_SESSION['score'])) {
     exit;
 }
 
+// Get score from session
+$score = $_SESSION['score'];
+
+// Calculate rank (this can be adjusted based on difficulty or other criteria)
+if ($score >= 85) {
+    $rank = 'A';
+} elseif ($score >= 40) {
+    $rank = 'B';
+} elseif ($score >= 20) {
+    $rank = 'C';
+} else {
+    $rank = 'D';
+}
 
 
 ?>
