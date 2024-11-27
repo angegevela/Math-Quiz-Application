@@ -141,9 +141,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="checkbox" name="operands[]" value="%" checked> %<br>
 
             <label for="max_value">Minimum Value:</label>
-            <input type="number" name="max_value" id="max_value" value="100" min="1" required>
+            <input type="number" name="max_value" id="max_value" value="1000" min="1" required>
             <label for="max_value">Maximum Value:</label>
-            <input type="number" name="max_value" id="max_value" value="100" min="1" required>
+            <input type="number" name="max_value" id="max_value" value="1000" min="1" required>
 
             <button type="submit">Start Quiz</button>
         </form>

@@ -2,38 +2,42 @@
 session_start();
 include('connect.php');
 
-
-// Check if the user has completed the quiz
-if (!isset($_SESSION['score'])) {
+// Check if the quiz is complete
+if (!isset($_SESSION['correct']) || !isset($_SESSION['questions'])) {
     header('Location: quiz.php');
     exit;
 }
 
-// Get score from session
-$score = $_SESSION['score'];
+// Calculate total questions and correct answers
+$totalQuestions = count($_SESSION['questions']);
+$correctAnswers = $_SESSION['correct'];
 
-// Calculate rank (this can be adjusted based on difficulty or other criteria)
-if ($score >= 85) {
+// Determine rank based on correct answers
+if ($correctAnswers >= 0.85 * $totalQuestions) {
     $rank = 'A';
-} elseif ($score >= 40) {
+} elseif ($correctAnswers >= 0.4 * $totalQuestions) {
     $rank = 'B';
-} elseif ($score >= 20) {
+} elseif ($correctAnswers >= 0.2 * $totalQuestions) {
     $rank = 'C';
 } else {
     $rank = 'D';
 }
 
-// Handle form submission to save user details
+// Handle leaderboard submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
-    $username = $_POST['username'];
-    $date = date('Y-m-d H:i:s'); // Current date and time
+    $username = htmlspecialchars($_POST['username']);
+    $date = date('Y-m-d H:i:s');
 
-    // Insert the score into the database
+    // Insert user score into the leaderboard
     $stmt = $conn->prepare("INSERT INTO leaderboard (username, score, date) VALUES (?, ?, ?)");
-    $stmt->bind_param("sis", $username, $score, $date);
+    $stmt->bind_param("sis", $username, $correctAnswers, $date);
     $stmt->execute();
-    
-    // Redirect to leaderboard after saving score
+
+    // Reset quiz session data
+    session_unset();
+    session_destroy();
+
+    // Redirect to leaderboard
     header('Location: index.php');
     exit;
 }
@@ -128,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
 <body>
     <div id="wrapper">
         <h1>Quiz Completed!</h1>
-        <p>Your Score: <?= $score ?> / 20</p>
+        <p>Your Score: <?= $correctAnswers ?> / <?= $totalQuestions ?></p>
         <p>Your Rank: <?= $rank ?></p>
 
         <form method="POST">
