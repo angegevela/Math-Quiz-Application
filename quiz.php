@@ -52,7 +52,6 @@ for ($i = 1; $i <= 3; $i++) {
 shuffle($choices); // Randomize answer order
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
