@@ -78,6 +78,24 @@ label {
 	font-size: 14px;
 }
 
+h3{
+    text-align: center;
+    font-family: Monaco, Courier, 'Courier New', monospace;
+    font-size: 24px;
+    
+}
+p{
+    text-align: center;
+    font-family: Monaco, Courier, 'Courier New', monospace;
+    font-size: 16px;
+}
+
+body{
+    background: url('bg.gif') no-repeat center center fixed; /* Add the GIF */
+    background-size: cover; /* Ensure it covers the entire viewport */
+    height: 100vh;
+}
+
 
 </style>
 <body>
