@@ -101,7 +101,7 @@ body{
 <div id="wrapper">
 <h3>Welcome to the Math Quiz Calculator</h3>
 <p>Get ready to challenge yourself with math problems and sharpen your skills!</p>
-		<form action="index1.php" method="GET">
+		<form action="index.php" method="GET">
 			<input type="submit" value="Let's Get Started" name="submit" id="submit" />
 		</s>
 </div>
